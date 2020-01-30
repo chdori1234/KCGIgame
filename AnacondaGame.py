@@ -57,7 +57,7 @@ def game():
             # 開始の頭の位置を定義（Random）
             self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
 
-        # アナコンダんも動作監視
+        # アナコンダの動作監視
         def control(self, xy):
             # 反対側には動かないように座標値をチェック
             if (xy[0] * -1, xy[1] * -1) == self.direction:
