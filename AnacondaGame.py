@@ -98,7 +98,11 @@ def game():
             self.position = (0, 0)
             self.color = BLACK
             self.create()
-
+            self.num=0
+            
+    #エサの数を数える
+        def count(self):
+            self.num+=1
         # エサを出力
         def create(self):
             self.position = (
@@ -108,9 +112,7 @@ def game():
         def draw(self, surface):
             draw_object(surface, self.color, self.position)
         
-        #エサの数を数える
-        def count(self):
-            self.num+=1
+        
 
 
     # 出力処置の定義
@@ -124,14 +126,15 @@ def game():
         if pythong.positions[0] == feed.position:
             python.eat()
             feed.create()
+            feed.count()
 
 
     # スピード、長さを出力
     def game_info(length, speed, surface):
         font = pygame.font.Font(None, 34)
-        text = font.render("Length: " + str(length) + "       Speed " + str(round(speed, 2)), 1, RED)
+        text = font.render("Length: " + str(length) + "Speed " + str(round(speed, 2))+"Count"+str(feed.num),1, RED)
         pos = text.get_rect()
-        pos.centerx = 150
+        pos.centerx = 200
         surface.blit(text, pos)
 
     def GameOver(surface):
