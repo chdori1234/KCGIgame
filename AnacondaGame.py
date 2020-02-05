@@ -107,6 +107,10 @@ def game():
         # エサを実際に出力
         def draw(self, surface):
             draw_object(surface, self.color, self.position)
+        
+        #エサの数を数える
+        def count(self):
+            self.num+=1
 
 
     # 出力処置の定義
